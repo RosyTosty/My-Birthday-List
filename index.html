@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Menu</title>
+  <!-- PageFlip JS & CSS via free CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    #container {
+      width: 100%;
+      max-width: 800px;
+      height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .page {
+      background-color: #fff;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+
+<div id="container">
+  <div id="book">
+    <!-- Add your page images here -->
+    <div class="page" style="background-image: url('page1.jpg');"></div>
+    <div class="page" style="background-image: url('page2.jpg');"></div>
+    <div class="page" style="background-image: url('page3.jpg');"></div>
+    <div class="page" style="background-image: url('page4.jpg');"></div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const pageFlip = new St.PageFlip(
+      document.getElementById('book'),
+      {
+        width: 400,
+        height: 600,
+        size: 'stretch',
+        minWidth: 300,
+        maxWidth: 1000,
+        minHeight: 400,
+        maxHeight: 1400,
+        maxShadowOpacity: 0.5,
+        showCover: true,
+        mobileScrollSupport: false
+      }
+    );
+    pageFlip.loadFromHTML(document.querySelectorAll('.page'));
+  });
+</script>
+</body>
+</html>
